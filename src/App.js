@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import { useState } from 'react'
 import './App.css';
+import { initialData } from './const';
+import ControlPanel from './ControlPanel';
+import DonutShelf from './DonutShelf';
 
 function App() {
+  const [donutShelfData, setDonutShelfData] = useState(initialData)
+  const [selectedAction, setSelectedAction] = useState('Add')
+  const [selectedType, setSelectedType] = useState('Glazed')
+
+  const handleActionClick = (label) => {
+      setSelectedAction(label)
+  }
+
+  const handleTypeClick = (label) => {
+      setSelectedType(label)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <ControlPanel 
+        selectedAction={selectedAction} 
+        handleActionClick={handleActionClick}
+        selectedType={selectedType}
+        handleTypeClick={handleTypeClick}
+      />
+      <DonutShelf donutShelfData={donutShelfData}/>
     </div>
   );
 }
