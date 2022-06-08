@@ -1,15 +1,20 @@
-import DonutColumn from "../DonutColumn"
+import DonutColumn from '../DonutColumn';
 
-const DonutShelf = ({ donutShelfData }) => {
- return (
-     <>
-     {donutShelfData.map((el) => {
-         return (
-             <DonutColumn key={el.name} columnData={el} />
-         )
-     })}
-     </>
- )
-}
+const DonutShelf = ({ donutShelfData, handleBoxClick, isAdd }) => {
+  return (
+    <>
+      {donutShelfData.map((el) => {
+        return (
+          <DonutColumn
+            key={el.userId}
+            columnData={el}
+            handleBoxClick={handleBoxClick}
+            isAdd={isAdd}
+          />
+        );
+      })}
+    </>
+  );
+};
 
-export default DonutShelf
+export default DonutShelf;

@@ -1,29 +1,40 @@
-import ButtonControl from '../ButtonControl'
-import './ControlPanel.css'
+import ButtonControl from '../ButtonControl';
+import { actionOptions, flavorOptions, actions } from '../const';
+import './ControlPanel.css';
 
-const ControlPanel = ({selectedAction, handleActionClick, selectedType, handleTypeClick}) => {
+const ControlPanel = ({ selectedAction, handleActionClick, selectedType, handleTypeClick }) => {
+  const disableFlavorOptions =
+    selectedAction !== actions.add.action && selectedAction !== actions.flavor.action;
 
-    return (
-        <>
-            <div className='panel'>
-                <ButtonControl selected={selectedAction} label="Sprinkles" onClick={handleActionClick}/>
-                <ButtonControl selected={selectedAction} label="Filled" onClick={handleActionClick}/>
-                <ButtonControl selected={selectedAction} label="Add" onClick={handleActionClick}/>
-                <ButtonControl selected={selectedAction} label="Remove" onClick={handleActionClick}/>
-                <ButtonControl selected={selectedAction} label="Flavor" onClick={handleActionClick}/>
-            </div>
-            {
-                selectedAction === 'Add' && (
-                    <div className='panel'>
-                        <ButtonControl selected={selectedType} label="Glazed" onClick={handleTypeClick}/>
-                        <ButtonControl selected={selectedType} label="Cherry" onClick={handleTypeClick}/>
-                        <ButtonControl selected={selectedType} label="Chocolate" onClick={handleTypeClick}/>
-                        <ButtonControl selected={selectedType} label="Maple" onClick={handleTypeClick}/>
-                    </div>
-                )
-            }
-        </>
-    )
-}
+  return (
+    <>
+      <div className='panel'>
+        {actionOptions.map((option) => {
+          return (
+            <ButtonControl
+              key={option.name}
+              selected={selectedAction}
+              option={option}
+              onClick={handleActionClick}
+            />
+          );
+        })}
+      </div>
+      <div className='panel'>
+        {flavorOptions.map((option) => {
+          return (
+            <ButtonControl
+              key={option.name}
+              selected={selectedType}
+              option={option}
+              onClick={handleTypeClick}
+              disabled={disableFlavorOptions}
+            />
+          );
+        })}
+      </div>
+    </>
+  );
+};
 
-export default ControlPanel
+export default ControlPanel;

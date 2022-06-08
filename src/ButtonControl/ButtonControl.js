@@ -1,14 +1,14 @@
-import './ButtonControl.css'
+import './ButtonControl.css';
 
-const ButtonControl = ({selected, label, onClick}) => {
-    return (
-        <button 
-            className={`button ${selected === label ? 'selected' : ''}`}
-            onClick={() => onClick(label)}
-        >
-            {label}
-        </button>
-    )
-}
+const ButtonControl = ({ selected, option, onClick, disabled }) => {
+  const classNameString = `button ${selected === option.action ? 'selected' : ''} ${
+    disabled ? 'disabled' : ''
+  }`;
+  return (
+    <button className={classNameString} onClick={() => onClick(option.action)} disabled={disabled}>
+      {option.name}
+    </button>
+  );
+};
 
-export default ButtonControl
+export default ButtonControl;

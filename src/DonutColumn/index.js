@@ -1,1 +1,1 @@
-export { default } from './DonutColumn'
+export { default } from './DonutColumn';

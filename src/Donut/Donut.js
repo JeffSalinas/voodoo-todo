@@ -1,15 +1,27 @@
-import './Donut.css'
+import './Donut.css';
 
-const Donut = ({donutData}) => {
-    const { flavor, sprinkles, filled } = donutData;
-    const donutDescription = `donut ${flavor}${filled ? '-filled' : ''}`;
+const Donut = ({ handleBoxClick, donutData, userId, isAdd }) => {
+  const { flavor, sprinkles, filled, donutId } = donutData;
+  const donutDescription = `donut ${flavor}${filled ? '-filled' : ''}`;
 
-    return (
-        <div className="donut-shape">
-            <div className={donutDescription}/>
-            {sprinkles && <img src="./images/sprinkles.png" className="sprinkles" alt='donut'/>}
-        </div>
-    )
-}
+  const handleClick = (e) => {
+    // this will prevent this event from bubbeling to the DonutColumn
+    e.stopPropagation();
+    handleBoxClick(userId, donutId);
+  };
 
-export default Donut
+  return (
+    <div className='donut-shape' onClick={handleClick}>
+      <div className={`${donutDescription} ${isAdd ? 'add' : ''}`} />
+      {sprinkles && (
+        <img
+          src='./images/sprinkles.png'
+          className={`sprinkles ${isAdd ? 'add' : ''}`}
+          alt='donut'
+        />
+      )}
+    </div>
+  );
+};
+
+export default Donut;
