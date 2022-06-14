@@ -1,16 +1,11 @@
-import DonutColumn from '../DonutColumn';
+import DonutBox from '../DonutBox';
 
 const DonutShelf = ({ donutShelfData, handleBoxClick, isAdd }) => {
   return (
     <>
       {donutShelfData.map((el) => {
         return (
-          <DonutColumn
-            key={el.userId}
-            columnData={el}
-            handleBoxClick={handleBoxClick}
-            isAdd={isAdd}
-          />
+          <DonutBox key={el.userId} boxData={el} handleBoxClick={handleBoxClick} isAdd={isAdd} />
         );
       })}
     </>

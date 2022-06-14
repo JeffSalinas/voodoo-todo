@@ -11,9 +11,9 @@ import {
   alterDonutFlavor
 } from './utils';
 
-function App() {
+const App = () => {
   const [donutShelfData, setDonutShelfData] = useState(initialData);
-  const [selectedAction, setSelectedAction] = useState('addDonut');
+  const [selectedAction, setSelectedAction] = useState('addMoreDonut');
   const [selectedType, setSelectedType] = useState('glazed');
 
   const handleActionClick = (label) => {
@@ -64,6 +64,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

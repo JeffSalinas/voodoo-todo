@@ -1,19 +1,19 @@
 import Donut from '../Donut/Donut';
-import './DonutColumn.css';
+import './DonutBox.css';
 
-const DonutColumn = ({ columnData, handleBoxClick, isAdd }) => {
+const DonutBox = ({ boxData, handleBoxClick, isAdd }) => {
   return (
-    <div className='donut-column' onClick={() => handleBoxClick(columnData.userId)}>
-      <h3>{columnData.name}</h3>
+    <div className='donut-column' onClick={() => handleBoxClick(boxData.userId)}>
+      <h3>{boxData.name}</h3>
       <div className={`donut-container ${isAdd ? 'add' : ''}`}>
-        {columnData.donuts.map((donutData) => {
+        {boxData.donuts.map((donutData) => {
           return (
             <Donut
               key={donutData.donutId}
               donutData={donutData}
-              userId={columnData.userId}
               handleBoxClick={handleBoxClick}
               isAdd={isAdd}
+              userId={boxData.userId}
             />
           );
         })}
@@ -22,4 +22,4 @@ const DonutColumn = ({ columnData, handleBoxClick, isAdd }) => {
   );
 };
 
-export default DonutColumn;
+export default DonutBox;

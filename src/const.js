@@ -9,7 +9,7 @@ export const actions = {
   },
   add: {
     name: 'Add',
-    action: 'addDonut'
+    action: 'addMoreDonut'
   },
   remove: {
     name: 'Remove',
@@ -50,7 +50,7 @@ export const flavorOptions = [
 
 export const initialData = [
   {
-    name: "Monika's Box",
+    name: "Manika's Box",
     userId: 'user-1',
     donuts: [
       {
