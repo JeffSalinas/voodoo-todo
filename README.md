@@ -2,7 +2,7 @@
 
 ## Summary
 
-First you do Todo and now you do Voodoo! This repo contains a partially complete application to customize your donut orders. This application was created with CRA and functional components with React Hooks.
+First you do Todo and now you do Voodoo! This repo contains a partially complete application to customize your donut orders. Upon completion, this app will add/remove donuts from individual boxes, and alter the sprinkles, filling, and flavor properties of individual donuts. This application was created with [CRA](https://create-react-app.dev/) and functional components with [React Hooks](https://reactjs.org/docs/hooks-intro.html).
 
 <img src="./demo/voodoo_todo.png">
 
@@ -49,10 +49,26 @@ If your screen looks like this, bask in the deep-fried glory of your donut listi
 
 ### Section 2: Give me the CRUDy options!
 
-##### Objective: Display the Action and Type buttons.
+##### Objective: Render the Action and Type buttons.
 
-[CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete#:~:text=In%20computer%20programming%2C%20create%2C%20read,computer%2Dbased%20forms%20and%20reports.) stands for Create, Read, Update, and Delete. They are the four basic operations for persistent storage. We are not saving data to a database in this app, but we will replicate this behavior in our `donutShelfData` object.
+[CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete#:~:text=In%20computer%20programming%2C%20create%2C%20read,computer%2Dbased%20forms%20and%20reports.) stands for Create, Read, Update, and Delete. They are the four basic operations for persisting data. We are not saving to a database in this app, but we will replicate this behavior in our `donutShelfData` state instance.
 
 ##### Step 1:
 
 Using the same strategy as Section 1, modify the `<ControlPanel />` component to render multiple `<ButtonControl />` components from the `actionOptions` and `flavorOptions` listed in `const.js`.
+
+This is the expected view by this point:
+
+<img src="./demo/section2.png">
+
+**Note:** The flavor buttons will be disabled until the Section 3 is implemented.
+
+### Section 3: Draw the rest of the owl
+
+<img src="./demo/draw_owl.jpeg" style="height: 150px">
+
+##### Objective: Add functionality to the Action Buttons
+
+This app is riddled with `ReplaceMeWithCorrectFunction`, `ReplaceWithCorrectValue`, and `TODO` comments. Track down the correct functions, values and complete the missing helper functions in `utils.js`. Use context clues and the [React Documentation](https://reactjs.org/) to help guide you.
+
+**Note:** This is the first test of this instructional repository. If something seems off, contact Jeff for clarification.
